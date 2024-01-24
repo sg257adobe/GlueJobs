@@ -1,0 +1,40 @@
+{
+  "name" : "S3CopyCrossAccount",
+  "description" : "",
+  "role" : "arn:aws:iam::769923650498:role/glueCopyJobS3",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-769923650498-us-east-1/scripts/S3CopyCrossAccount.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--enable-metrics" : "true",
+    "--enable-spark-ui" : "true",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-769923650498-us-east-1/sparkHistoryLogs/",
+    "--enable-job-insights" : "false",
+    "--enable-observability-metrics" : "true",
+    "--enable-glue-datacatalog" : "true",
+    "--enable-continuous-cloudwatch-log" : "true",
+    "--job-bookmark-option" : "job-bookmark-disable",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-769923650498-us-east-1/temporary/"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 2,
+  "timeout" : 2880,
+  "maxCapacity" : 2.0,
+  "glueVersion" : "4.0",
+  "numberOfWorkers" : 2,
+  "workerType" : "G.1X",
+  "executionClass" : "STANDARD",
+  "codeGenConfigurationNodes" : "{\"node-1705036095344\":{\"S3DirectTarget\":{\"Compression\":\"none\",\"Format\":\"csv\",\"Inputs\":[\"node-1705036092688\"],\"Name\":\"Amazon S3\",\"PartitionKeys\":[],\"Path\":\"s3://jan24learningsources/testCopyData/\",\"SchemaChangePolicy\":{\"EnableUpdateCatalog\":false}}},\"node-1705036092688\":{\"S3CsvSource\":{\"AdditionalOptions\":{\"EnableSamplePath\":false,\"SamplePath\":\"\"},\"Escaper\":\"\",\"Exclusions\":[],\"Name\":\"Amazon S3\",\"OptimizePerformance\":false,\"OutputSchemas\":[{\"Columns\":[{\"Name\":\"program type\",\"Type\":\"string\"},{\"Name\":\"program\",\"Type\":\"string\"},{\"Name\":\"site name\",\"Type\":\"string\"},{\"Name\":\"borough / community\",\"Type\":\"string\"},{\"Name\":\"agency\",\"Type\":\"string\"},{\"Name\":\"contact number\",\"Type\":\"string\"},{\"Name\":\"grade level / age group\",\"Type\":\"string\"},{\"Name\":\"location 1\",\"Type\":\"string\"},{\"Name\":\"postcode\",\"Type\":\"string\"},{\"Name\":\"latitude\",\"Type\":\"string\"},{\"Name\":\"longitude\",\"Type\":\"string\"},{\"Name\":\"community board\",\"Type\":\"string\"},{\"Name\":\"community council\",\"Type\":\"string\"},{\"Name\":\"census tract\",\"Type\":\"string\"},{\"Name\":\"bin\",\"Type\":\"string\"},{\"Name\":\"bbl\",\"Type\":\"string\"},{\"Name\":\"nta\",\"Type\":\"string\"}]}],\"Paths\":[\"s3://jan24learningsource/DYCD_after-school_programs__Neighborhood_Development_Area__NDA__Family_Support.csv\"],\"QuoteChar\":\"quote\",\"Recurse\":true,\"Separator\":\"comma\",\"WithHeader\":true}}}",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "GlueJobs",
+    "branch" : "main",
+    "folder" : "S3CopyCrossAccount"
+  }
+}
