@@ -9,7 +9,7 @@ def lambda_handler(event, context):
     logging.info("Lambda function execution triggered.")
     logging.info("Event received: %s", event)
 
-    # Perform some processing (not necessary for this example)
+    # Perform some more processing (not necessary for this example)
     result = process_event(event)
 
     # Log the result
