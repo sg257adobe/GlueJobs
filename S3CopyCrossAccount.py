@@ -11,7 +11,7 @@ glueContext = GlueContext(sc)
 spark = glueContext.spark_session
 job = Job(glueContext)
 job.init(args["JOB_NAME"], args)
-
+#changes
 # Script generated for node Amazon S3
 AmazonS3_node1705036092688 = glueContext.create_dynamic_frame.from_options(
     format_options={
