@@ -5,7 +5,7 @@ def lambda_handler(event, context):
     # Configure logging
     logging.basicConfig(level=logging.INFO)
 
-    # Log some data
+    # Log some more data
     logging.info("Lambda function execution triggered.")
     logging.info("Event received: %s", event)
 
