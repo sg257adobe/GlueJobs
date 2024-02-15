@@ -1,0 +1,2 @@
+requests==2.26.0  # Example dependency
+pytest==6.2.5  # Required for running unit tests
